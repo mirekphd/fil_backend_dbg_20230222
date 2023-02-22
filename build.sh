@@ -374,7 +374,7 @@ then
   DOCKER_ARGS="$DOCKER_ARGS --build-arg USE_HOST_LIB=1"
 fi
 
-if [ $TESTS -eq 1 ]
+if [ $TESTS -eq 1 ] && [ ! $HOST_BUILD -eq 1 ]
 then
   EXTRA_DOCKER_ARG=""
   if [ ! -z $CONDA_TEST_TAG ]
