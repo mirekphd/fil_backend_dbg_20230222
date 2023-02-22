@@ -330,7 +330,10 @@ hostbuild () {
     -DBACKEND_FOLDER="$INSTALLDIR" ..;
   ninja
   cp libtriton_fil.so "$INSTALLDIR"
-  cp _deps/cuml-build/libcuml++.so "$INSTALLDIR"
+  if [ $TRITON_ENABLE_GPU != 'OFF' ]
+  then
+    cp _deps/cuml-build/libcuml++.so "$INSTALLDIR"
+  fi  
   popd
 }
 
